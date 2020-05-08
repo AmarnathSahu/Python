@@ -1,0 +1,34 @@
+'{dictaramId=1234567, LastUpdatedBy=12345}'
+
+
+import json
+
+# some JSON:
+x = '{dictaramId=1234567, LastUpdatedBy=12345}'
+
+list = []
+list = (x[1:len(x)-1]).split(",")
+originalJson = '{'
+j=0
+for item in list:
+  subList = item.split("=")
+  i=0
+  for subItem in subList:
+    originalJson += '"' + subItem +'"'
+    if(i%3 == 0):
+      originalJson += ':'
+    i = i + 1
+  if(j < len(list)-1):
+    originalJson += ","
+  j = j + 1
+originalJson += '}'
+print(originalJson)
+
+
+
+
+
+
+
+{"dictaramId":"1234567"," LastUpdatedBy":"12345"}
+	

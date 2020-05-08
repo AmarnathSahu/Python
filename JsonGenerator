@@ -1,0 +1,48 @@
+def generateInnerNode(x):
+    list = []
+    list = (x[1:len(x)-1]).split(",")
+    originalJson = '{'
+    j=0
+    for item in list:
+      subList = item.split("=")
+      i=0
+      for subItem in subList:
+        originalJson += '"' + subItem +'"'
+        if(i%3 == 0):
+          originalJson += ':'
+        i = i + 1
+      if(j < len(list)-1):
+        originalJson += ","
+      j = j + 1
+    originalJson += '}'
+    return originalJson;
+    
+    
+    
+    
+x = '{dictaramId=12345, LastUpdatedBy=12345} {dictaramId=123456, LastUpdatedBy=12345} {dictaramId=1234567, LastUpdatedBy=12345}'
+
+y = '';
+mainList = []
+res = [i for i in range(len(x)) if x.startswith('{', i)]
+for i in range(len(res)):
+  initial = res[i]
+  if(i == len(res)-1):
+    final = len(x)
+  else:
+    final = res[i+1]
+  y = x[initial:final].strip()
+  mainList.append(y)
+
+
+originalOfOriginalJson = '['
+k=0
+for mainItem in mainList:
+  result = generateInnerNode(mainItem)
+  originalOfOriginalJson += result
+  if(k < len(mainList) - 1):
+    originalOfOriginalJson += ','
+  k = k + 1
+originalOfOriginalJson += ']'
+print(originalOfOriginalJson)
+    
