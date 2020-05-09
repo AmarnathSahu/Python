@@ -56,5 +56,7 @@ for dataItem in data_Object:
     csv_writer.writerow(dataItem.values()) 
 
 
+data_file.close() 
+data_file = open('data_file.csv', 'r')
 send_mail('send_from',['send_to'], 'testMail', 'Hello', ['data_file.csv'])
 data_file.close() 

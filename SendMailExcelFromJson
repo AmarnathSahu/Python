@@ -89,9 +89,9 @@ for mainItem in mainList:
 originalOfOriginalJson += ']'
 
 
-data_file = open('data_file1.csv', 'w') 
+data_file1 = open('data_file1.csv', 'w') 
 
-csv_writer = csv.writer(data_file)
+csv_writer = csv.writer(data_file1)
 
 count = 0
 for dataItem in json.loads(originalOfOriginalJson):
@@ -102,7 +102,8 @@ for dataItem in json.loads(originalOfOriginalJson):
 	
     csv_writer.writerow(dataItem.values()) 
 
-#data_file = open('data_file1.csv', 'r')
-send_mail('amarnathsahu78@gmail.com',['amarnathsahu78@gmail.com'], 'testMail', 'Hello', ['data_file1.csv']) 
-data_file.close() 
+data_file1.close() 
+data_file1 = open('data_file1.csv', 'r')
+send_mail('send_from',['send_to'], 'testMail', 'Hello', ['data_file1.csv']) 
+data_file1.close()
     
