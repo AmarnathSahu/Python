@@ -1,9 +1,3 @@
-'{dictaramId=1234567, LastUpdatedBy=12345}'
-
-
-import json
-
-# some JSON:
 x = '{dictaramId=1234567, LastUpdatedBy=12345}'
 
 list = []
